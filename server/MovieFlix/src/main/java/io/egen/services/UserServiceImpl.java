@@ -41,16 +41,16 @@ public class UserServiceImpl implements UserService{
 				throw new UserAlreadyExistException();
 			}
 			else {
-				return user;
+				return repository.create(user);
 			}
 		
 	}
 
 	@Override
-	public User update(User user) {
-		User existing = repository.findOne(user.getId());
+	public User update(String id, User user) throws UserNotFoundException {
+		User existing = repository.findOne(id);
 		if(existing ==null) {
-			return null;
+			throw new UserNotFoundException();
 		}
 		else {
 			return repository.update(user);

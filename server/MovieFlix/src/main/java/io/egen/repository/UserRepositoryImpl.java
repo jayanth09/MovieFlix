@@ -19,7 +19,7 @@ public class UserRepositoryImpl implements UserRepository {
 	
 	@Override
 	public List<User> findAll() {
-		TypedQuery<User> query = em.createQuery("Select * from User u ORDER BY u.email ASC", User.class);
+		TypedQuery<User> query = em.createQuery("Select u from User u ORDER BY u.email ASC", User.class);
 		return query.getResultList();
 	}
 
@@ -30,7 +30,7 @@ public class UserRepositoryImpl implements UserRepository {
 	
 	@Override
 	public User findbyEmail(String email) {
-		TypedQuery<User> query = em.createQuery("User.findByEmail", User.class);
+		TypedQuery<User> query = em.createNamedQuery("User.findByEmail", User.class);
 		query.setParameter("pEmail", email);
 		List<User> user = query.getResultList();
 		if(user!= null && user.size() == 1) {

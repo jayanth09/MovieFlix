@@ -13,6 +13,6 @@ public interface UserService {
 	public List<User> findAll();
 	public User findOne(String id) throws UserNotFoundException;
 	public User create(User user) throws UserAlreadyExistException;
-	public User update( User user);
+	public User update(String id, User user) throws UserNotFoundException;
 	public void delete(String id);
 }
