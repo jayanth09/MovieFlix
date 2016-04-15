@@ -1,20 +1,30 @@
 package io.egen.entity;
 
 import java.util.Date;
-import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.GenericGenerator;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-/*@Data
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
 @Entity
-@Table*/
+@Table
+@NoArgsConstructor
+@AllArgsConstructor
+@NamedQueries (
+			@NamedQuery(name="Movie.findByTitle", query="Select m from Movie m where m.Title= :pTitle")
+		)
 public class Movie {
 	
 	@Id
@@ -22,24 +32,28 @@ public class Movie {
 	@GeneratedValue(generator="myuuid")
 	private String id;
 	
-	private String title;
-	private int year;
-	private String rated;
-	private Date released;
-	private String runtime;
-	private List<String> genre;
-	private String director;
-	private List<String> writer;
-	private String plot;
-	private String actor;
-	private String language;
-	private String country;
-	private String awards;
-	private String poster;
-	private int metascore;
-	private double imdbRating;
-	private long imdbVotes;
-	private String imdbId;
-	private String type;;
+	@Column(unique=true)
+	private String Title;
+	private int Year;
+	private String Rated;
+	
+	@JsonFormat(pattern="dd MMM yyyy")
+	private Date Released;
+	
+	private String Runtime;
+	private String Genre;
+	private String Director;
+	private String Writer;
+	private String Plot;
+	private String Actors;
+	private String Language;
+	private String Country;
+	private String Awards;
+	private String Poster;
+	private String Metascore;
+	private String imdbRating;
+	private String imdbVotes;
+	private String imdbID;
+	private String Type;
 	
 }

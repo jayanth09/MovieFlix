@@ -7,7 +7,8 @@ import io.egen.entity.Movie;
 public interface MovieRepository {
 	public List<Movie> findAll();
 	public Movie findOne(String id);
+	public Movie findByTitle (String title);
 	public Movie create(Movie movie);
-	public Movie update(String id, Movie movie);
-	public Movie delete(String id);
+	public Movie update( Movie movie);
+	public void delete(Movie movie);
 }
