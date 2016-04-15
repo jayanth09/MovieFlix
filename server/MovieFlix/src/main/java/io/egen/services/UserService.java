@@ -2,29 +2,17 @@ package io.egen.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import io.egen.entity.User;
+import io.egen.exception.UserAlreadyExistException;
+import io.egen.exception.UserNotFoundException;
 
-@Service
-public class UserService {
-	public List<User> findAll() {
-		return null;
-	}
-	
-	public User findOne(String id) {
-		return null;
-	}
-	
-	public User create(User user) {
-		return null;
-	}
-	
-	public User update(String id, User user) {
-		return null;
-	}
-	
-	public User delete(String id) {
-		return null;
-	}
+@Component
+public interface UserService {
+	public List<User> findAll();
+	public User findOne(String id) throws UserNotFoundException;
+	public User create(User user) throws UserAlreadyExistException;
+	public User update( User user);
+	public void delete(String id);
 }
