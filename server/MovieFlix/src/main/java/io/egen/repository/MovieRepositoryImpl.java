@@ -39,6 +39,13 @@ public class MovieRepositoryImpl  implements MovieRepository{
 			return null;
 		}
 	}
+	
+	@Override
+	public List<Movie> findByType(String Type) {
+		TypedQuery<Movie> query = em.createQuery("Select m from Movie m where m.Type= :pType", Movie.class);
+		query.setParameter("pType", Type);
+		return query.getResultList();
+	}
 
 	@Override
 	public Movie create(Movie movie) {
@@ -56,6 +63,8 @@ public class MovieRepositoryImpl  implements MovieRepository{
 	public void delete(Movie movie) {
 		em.remove(movie);
 	}
+
+	
 
 	
 

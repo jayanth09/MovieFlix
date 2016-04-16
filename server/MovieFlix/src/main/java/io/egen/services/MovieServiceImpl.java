@@ -30,10 +30,34 @@ public class MovieServiceImpl  implements MovieService{
 		if(movie == null) {
 			throw new MovieNotFoundException();
 		}
-		else {
+		else  {
 			return movie;
 		}
 	}
+	
+	@Override
+	public Movie findByTitle(String Title) throws MovieNotFoundException {
+		Movie existing = repository.findByTitle(Title);
+		if(existing !=null) {
+			return existing;
+		}
+		else {
+				throw new MovieNotFoundException();
+		}
+	}
+	
+	@Override
+	public List<Movie> findByType(String Type) throws MovieNotFoundException {
+		List<Movie> movie = repository.findByType(Type);
+		if(movie.isEmpty()) {
+			return null;
+		}
+		else {
+			return movie;
+		}
+		
+	}
+
 
 	@Override
 	public Movie create(Movie movie) throws MovieAlreayExistException {

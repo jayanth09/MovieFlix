@@ -19,6 +19,7 @@ import io.egen.services.MovieService;
 @RequestMapping(value="/movies")
 public class MovieController {
 	
+	
 	@Autowired
 	private MovieService service;
 	
@@ -26,11 +27,19 @@ public class MovieController {
 	public List<Movie> findAll() {
 		return service.findAll();
 	}
-	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie findOne(@PathVariable("id") String id)  throws MovieNotFoundException{
+	public Movie findOne(@PathVariable("id") String id)  throws MovieNotFoundException {
 		return service.findOne(id);
 	}
+	
+	@RequestMapping(value="/title/{Title}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Movie findByTitle(@PathVariable("Title") String Title)  throws MovieNotFoundException{
+		return service.findByTitle(Title);
+	} 
+	@RequestMapping(value="/type/{Type}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> findByType(@PathVariable("Type") String Type)  throws MovieNotFoundException{
+		return service.findByType(Type);
+	} 
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public Movie create( @RequestBody Movie movie) throws MovieAlreayExistException{
