@@ -6,7 +6,7 @@ public class AppInitializer  extends AbstractAnnotationConfigDispatcherServletIn
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] {AppConfig.class, JpaConfig.class};
+		return new Class[] {AppConfig.class, JpaConfig.class, SwaggerConfig.class};
 	}
 
 	@Override
@@ -16,7 +16,7 @@ public class AppInitializer  extends AbstractAnnotationConfigDispatcherServletIn
 
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] {"/api/*"};
+		return new String[] {"/*"};
 	}
 
 }
