@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.egen.entity.Movie;
-import io.egen.exception.MovieAlreayExistException;
-import io.egen.exception.MovieNotFoundException;
+import io.egen.exception.EntityAlreadyExistException;
+import io.egen.exception.EntityNotFoundException;
 import io.egen.services.MovieService;
 
 @RestController
@@ -28,26 +28,26 @@ public class MovieController {
 		return service.findAll();
 	}
 	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie findOne(@PathVariable("id") String id)  throws MovieNotFoundException {
+	public Movie findOne(@PathVariable("id") String id)  throws EntityNotFoundException {
 		return service.findOne(id);
 	}
 	
 	@RequestMapping(value="/title/{Title}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie findByTitle(@PathVariable("Title") String Title)  throws MovieNotFoundException{
+	public Movie findByTitle(@PathVariable("Title") String Title)  throws EntityNotFoundException{
 		return service.findByTitle(Title);
 	} 
 	@RequestMapping(value="/type/{Type}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Movie> findByType(@PathVariable("Type") String Type)  throws MovieNotFoundException{
+	public List<Movie> findByType(@PathVariable("Type") String Type)  throws EntityNotFoundException{
 		return service.findByType(Type);
 	} 
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie create( @RequestBody Movie movie) throws MovieAlreayExistException{
+	public Movie create( @RequestBody Movie movie) throws EntityAlreadyExistException{
 		return service.create(movie);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public Movie update(@PathVariable("id") String id, @RequestBody Movie movie) throws MovieNotFoundException {
+	public Movie update(@PathVariable("id") String id, @RequestBody Movie movie) throws EntityNotFoundException {
 		return service.update(id, movie);
 	}
 	

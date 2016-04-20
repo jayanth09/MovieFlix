@@ -5,14 +5,15 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import io.egen.entity.User;
-import io.egen.exception.UserAlreadyExistException;
-import io.egen.exception.UserNotFoundException;
+import io.egen.exception.EntityAlreadyExistException;
+import io.egen.exception.EntityNotFoundException;
+
 
 @Component
 public interface UserService {
 	public List<User> findAll();
-	public User findOne(String id) throws UserNotFoundException;
-	public User create(User user) throws UserAlreadyExistException;
-	public User update(String id, User user) throws UserNotFoundException;
+	public User findOne(String id) throws EntityNotFoundException;
+	public User create(User user) throws EntityAlreadyExistException;
+	public User update(String id, User user) throws EntityNotFoundException;
 	public void delete(String id);
 }

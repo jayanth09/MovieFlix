@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.egen.entity.Movie;
-import io.egen.exception.MovieAlreayExistException;
-import io.egen.exception.MovieNotFoundException;
+import io.egen.exception.EntityAlreadyExistException;
+import io.egen.exception.EntityNotFoundException;
 import io.egen.repository.MovieRepository;
 
 @Service
@@ -25,10 +25,10 @@ public class MovieServiceImpl  implements MovieService{
 	}
 
 	@Override
-	public Movie findOne(String id) throws MovieNotFoundException {
+	public Movie findOne(String id) throws EntityNotFoundException {
 		Movie movie = repository.findOne(id);
 		if(movie == null) {
-			throw new MovieNotFoundException();
+			throw new EntityNotFoundException();
 		}
 		else  {
 			return movie;
@@ -36,21 +36,21 @@ public class MovieServiceImpl  implements MovieService{
 	}
 	
 	@Override
-	public Movie findByTitle(String Title) throws MovieNotFoundException {
+	public Movie findByTitle(String Title) throws EntityNotFoundException {
 		Movie existing = repository.findByTitle(Title);
 		if(existing !=null) {
 			return existing;
 		}
 		else {
-				throw new MovieNotFoundException();
+				throw new EntityNotFoundException();
 		}
 	}
 	
 	@Override
-	public List<Movie> findByType(String Type) throws MovieNotFoundException {
+	public List<Movie> findByType(String Type) throws EntityNotFoundException {
 		List<Movie> movie = repository.findByType(Type);
 		if(movie.isEmpty()) {
-			return null;
+			throw new EntityNotFoundException();
 		}
 		else {
 			return movie;
@@ -60,10 +60,10 @@ public class MovieServiceImpl  implements MovieService{
 
 
 	@Override
-	public Movie create(Movie movie) throws MovieAlreayExistException {
+	public Movie create(Movie movie) throws EntityAlreadyExistException {
 		Movie existing = repository.findByTitle(movie.getTitle());
 		if(existing != null) {
-			throw new MovieAlreayExistException();
+			throw new EntityAlreadyExistException();
 		}
 		else {
 			return repository.create(movie);
@@ -71,10 +71,10 @@ public class MovieServiceImpl  implements MovieService{
 	}
 
 	@Override
-	public Movie update(String id, Movie movie) throws MovieNotFoundException{
+	public Movie update(String id, Movie movie) throws EntityNotFoundException{
 		Movie existing = repository.findOne(id);
 		if(existing == null) {
-			throw new MovieNotFoundException();
+			throw new EntityNotFoundException();
 		}
 		else {
 			return repository.update(movie);

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.egen.entity.User;
-import io.egen.exception.UserAlreadyExistException;
-import io.egen.exception.UserNotFoundException;
+import io.egen.exception.EntityAlreadyExistException;
+import io.egen.exception.EntityNotFoundException;
 import io.egen.services.UserService;
 
 @RestController
@@ -28,17 +28,17 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public User findOne(@PathVariable("id") String id) throws UserNotFoundException {
+	public User findOne(@PathVariable("id") String id) throws EntityNotFoundException {
 		return service.findOne(id);
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public User create(@RequestBody User user) throws UserAlreadyExistException {
+	public User create(@RequestBody User user) throws EntityAlreadyExistException {
 		return service.create(user);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public User update(@PathVariable("id") String id, @RequestBody User user) throws UserNotFoundException {
+	public User update(@PathVariable("id") String id, @RequestBody User user) throws EntityNotFoundException {
 		return service.update(id, user);
 	}
 	

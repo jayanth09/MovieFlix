@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.egen.entity.User;
-import io.egen.exception.UserAlreadyExistException;
-import io.egen.exception.UserNotFoundException;
+import io.egen.exception.EntityAlreadyExistException;
+import io.egen.exception.EntityNotFoundException;
 import io.egen.repository.UserRepository;
 
 @Service
@@ -24,10 +24,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User findOne(String id) throws UserNotFoundException{
+	public User findOne(String id) throws EntityNotFoundException{
 		 User user = repository.findOne(id);
 		 if(user == null) {
-			 throw new UserNotFoundException();
+			 throw new EntityNotFoundException();
 		 }
 		 else {
 				return user;
@@ -35,10 +35,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User create(User user) throws UserAlreadyExistException{
+	public User create(User user) throws EntityAlreadyExistException{
 			User existing = repository.findbyEmail(user.getEmail());
 			if(existing != null) {
-				throw new UserAlreadyExistException();
+				throw new EntityAlreadyExistException();
 			}
 			else {
 				return repository.create(user);
@@ -47,10 +47,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User update(String id, User user) throws UserNotFoundException {
+	public User update(String id, User user) throws EntityNotFoundException {
 		User existing = repository.findOne(id);
 		if(existing ==null) {
-			throw new UserNotFoundException();
+			throw new EntityNotFoundException();
 		}
 		else {
 			return repository.update(user);

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.egen.entity.UserReview;
+import io.egen.exception.EntityNotFoundException;
 import io.egen.services.UserReviewService;
 
 @RestController
@@ -21,12 +22,12 @@ public class UserReviewController {
 	private UserReviewService service;
 	
 	@RequestMapping(value="/findById/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<UserReview> findReviewById(@PathVariable("id") String id) {
+	public List<UserReview> findReviewById(@PathVariable("id") String id) throws EntityNotFoundException{
 		return service.findReviewById(id);
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public UserReview findOne(@PathVariable("id") String id)  {
+	public UserReview findOne(@PathVariable("id") String id) throws EntityNotFoundException {
 		return service.findOne(id);
 	}
 	
@@ -36,7 +37,7 @@ public class UserReviewController {
 	}
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public UserReview update(@PathVariable("id") String id, @RequestBody UserReview review) {
+	public UserReview update(@PathVariable("id") String id, @RequestBody UserReview review) throws EntityNotFoundException {
 		return service.update(id, review);
 	}
 	
