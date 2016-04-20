@@ -1,10 +1,13 @@
 	package io.egen.entity;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -41,7 +44,9 @@ public class Movie {
 	private Date Released;
 	
 	private String Runtime;
+	
 	private String Genre;
+	
 	private String Director;
 	
 	@Column(columnDefinition="VARCHAR(4000)")
@@ -55,9 +60,10 @@ public class Movie {
 	private String Poster;
 	private String Metascore;
 	private float imdbRating;
-	private int imdbVotes;
+	
+	@Column(columnDefinition="INT(11)")
+	private String imdbVotes;
+	
 	private String imdbID;
 	private String Type;
-	
-	
 }

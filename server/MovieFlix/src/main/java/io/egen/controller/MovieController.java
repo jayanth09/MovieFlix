@@ -55,4 +55,17 @@ public class MovieController {
 	public void delete(@PathVariable("id") String id) {
 		service.delete(id);
 	}
+	
+	@RequestMapping(value="/imdbRating", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> sortByImdbRating() {
+		return service.sortByImdbRating();
+	}
+	
+	@RequestMapping(value="/year", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> sortByYear() {
+		return service.sortByYear();
+	}
+	
+	
+	
 }

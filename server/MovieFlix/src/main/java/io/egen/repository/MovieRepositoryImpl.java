@@ -64,8 +64,30 @@ public class MovieRepositoryImpl  implements MovieRepository{
 		em.remove(movie);
 	}
 
-	
+	@Override
+	public List<Movie> sortByImdbRating() {
+		TypedQuery<Movie> query = em.createQuery("Select m from Movie m ORDER BY m.imdbRating DESC", Movie.class);
+		List<Movie> movies = query.getResultList();
+		if(movies.isEmpty()) {
+			System.out.println("List is empty");
+			return null;
+		}
+		else {
+			return query.getResultList();
+		}
+		
+	}
 
-	
-
+	@Override
+	public List<Movie> sortByYear() {
+		TypedQuery<Movie> query = em.createQuery("Select m from Movie m ORDER BY m.Year DESC", Movie.class);
+		List<Movie> movies = query.getResultList();
+		if(movies.isEmpty()) {
+			System.out.println("List is empty");
+			return null;
+		}
+		else {
+			return query.getResultList();
+		}
+	}
 }

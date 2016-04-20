@@ -89,4 +89,14 @@ public class MovieServiceImpl  implements MovieService{
 		}
 	}
 
+	@Override
+	public List<Movie> sortByImdbRating() {
+		return repository.sortByImdbRating();
+	}
+
+	@Override
+	public List<Movie> sortByYear() {
+		return repository.sortByYear();
+	}
+
 }

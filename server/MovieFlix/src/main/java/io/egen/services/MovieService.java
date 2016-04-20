@@ -16,4 +16,6 @@ public interface MovieService {
 	public Movie create(Movie movie) throws EntityAlreadyExistException;
 	public Movie update(String id, Movie movie) throws EntityNotFoundException;
 	public void delete(String id);
+	public List<Movie> sortByImdbRating();
+	public List<Movie> sortByYear();
 }
