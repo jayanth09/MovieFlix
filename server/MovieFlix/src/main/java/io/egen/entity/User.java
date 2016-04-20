@@ -28,9 +28,14 @@ public class User {
 	@GeneratedValue(generator="myuuid")
 	private String id;
 	
+	private String firstName;
+	private String lastName;
+	
 	@Column(unique=true)
 	private String email;
 	
 	private String password;
+	
+	private String userRole;
 
 }

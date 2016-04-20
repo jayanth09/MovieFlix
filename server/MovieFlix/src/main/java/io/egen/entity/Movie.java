@@ -1,7 +1,6 @@
-package io.egen.entity;
+	package io.egen.entity;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,6 +33,7 @@ public class Movie {
 	
 	@Column(unique=true)
 	private String Title;
+	
 	private String Year;
 	private String Rated;
 	
@@ -43,7 +43,10 @@ public class Movie {
 	private String Runtime;
 	private String Genre;
 	private String Director;
+	
+	@Column(columnDefinition="VARCHAR(4000)")
 	private String Writer;
+	
 	private String Plot;
 	private String Actors;
 	private String Language;
@@ -51,9 +54,10 @@ public class Movie {
 	private String Awards;
 	private String Poster;
 	private String Metascore;
-	private String imdbRating;
-	private String imdbVotes;
+	private float imdbRating;
+	private int imdbVotes;
 	private String imdbID;
 	private String Type;
+	
 	
 }

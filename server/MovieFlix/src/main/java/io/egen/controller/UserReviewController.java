@@ -35,7 +35,6 @@ public class UserReviewController {
 		return service.create(review);
 	}
 	
-	
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public UserReview update(@PathVariable("id") String id, @RequestBody UserReview review) {
 		return service.update(id, review);
