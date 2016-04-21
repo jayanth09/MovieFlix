@@ -99,4 +99,14 @@ public class MovieServiceImpl  implements MovieService{
 		return repository.sortByYear();
 	}
 
+	@Override
+	public List<Movie> getTopRatedMovies() {
+		return repository.getTopRatedMovies();
+	}
+
+	@Override
+	public List<Movie> getTopRatedSeries() {
+		return repository.getTopRatedSeries();
+	}
+
 }

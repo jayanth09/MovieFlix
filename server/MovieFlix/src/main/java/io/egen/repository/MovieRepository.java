@@ -14,4 +14,6 @@ public interface MovieRepository {
 	public void delete(Movie movie);
 	public List<Movie> sortByImdbRating();
 	public List<Movie> sortByYear();
+	public List<Movie> getTopRatedMovies();
+	public List<Movie> getTopRatedSeries();
 }

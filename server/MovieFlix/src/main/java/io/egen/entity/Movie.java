@@ -1,13 +1,10 @@
 	package io.egen.entity;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -61,7 +58,6 @@ public class Movie {
 	private String Metascore;
 	private float imdbRating;
 	
-	@Column(columnDefinition="INT(11)")
 	private String imdbVotes;
 	
 	private String imdbID;

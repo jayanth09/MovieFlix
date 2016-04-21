@@ -66,6 +66,14 @@ public class MovieController {
 		return service.sortByYear();
 	}
 	
+	@RequestMapping(value="/topMovies", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> getTopRatedMovies() {
+		return service.getTopRatedMovies();
+	}
 	
+	@RequestMapping(value="/topSeries", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> getTopRatedSeries() {
+		return service.getTopRatedSeries();
+	}
 	
 }

@@ -90,4 +90,20 @@ public class MovieRepositoryImpl  implements MovieRepository{
 			return query.getResultList();
 		}
 	}
+
+	@Override
+	public List<Movie> getTopRatedMovies() {
+		TypedQuery<Movie> query = em.createQuery("Select m from Movie m WHERE m.Type = :mType AND m.imdbRating > :mValue", Movie.class);
+		query.setParameter("mType", "movie");
+		query.setParameter("mValue", 8.4f);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Movie> getTopRatedSeries() {
+		TypedQuery<Movie> query = em.createQuery("Select m from Movie m WHERE m.Type = :mType AND m.imdbRating > :mValue", Movie.class);
+		query.setParameter("mType", "series");
+		query.setParameter("mValue", 8.4f);
+		return query.getResultList();
+	}
 }
