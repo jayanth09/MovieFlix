@@ -58,7 +58,7 @@ public class Movie {
 	private String Metascore;
 	private float imdbRating;
 	
-	private String imdbVotes;
+	private Long imdbVotes;
 	
 	private String imdbID;
 	private String Type;

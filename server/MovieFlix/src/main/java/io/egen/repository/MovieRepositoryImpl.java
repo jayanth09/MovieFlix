@@ -106,4 +106,17 @@ public class MovieRepositoryImpl  implements MovieRepository{
 		query.setParameter("mValue", 8.4f);
 		return query.getResultList();
 	}
+
+	@Override
+	public List<Movie> sortByImdbVotes() {
+		TypedQuery<Movie> query = em.createQuery("Select m from Movie m ORDER BY m.imdbVotes DESC", Movie.class);
+		List<Movie> movies = query.getResultList();
+		if(movies.isEmpty()) {
+			System.out.println("List is empty");
+			return null;
+		}
+		else {
+			return query.getResultList();
+		}
+	}
 }

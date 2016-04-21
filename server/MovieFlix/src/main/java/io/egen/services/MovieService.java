@@ -18,6 +18,7 @@ public interface MovieService {
 	public void delete(String id);
 	public List<Movie> sortByImdbRating();
 	public List<Movie> sortByYear();
+	public List<Movie> sortByImdbVotes();
 	public List<Movie> getTopRatedMovies();
 	public List<Movie> getTopRatedSeries();
 }

@@ -66,6 +66,10 @@ public class MovieController {
 		return service.sortByYear();
 	}
 	
+	@RequestMapping(value="/imdbVotes", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<Movie> sortByImdbVotes() {
+		return service.sortByImdbVotes();
+	} 
 	@RequestMapping(value="/topMovies", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Movie> getTopRatedMovies() {
 		return service.getTopRatedMovies();

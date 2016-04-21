@@ -109,4 +109,9 @@ public class MovieServiceImpl  implements MovieService{
 		return repository.getTopRatedSeries();
 	}
 
+	@Override
+	public List<Movie> sortByImdbVotes() {
+		return repository.sortByImdbVotes();
+	}
+
 }
