@@ -34,7 +34,7 @@ public class Movie {
 	@Column(unique=true)
 	private String Title;
 	
-	private String Year;
+	private int Year;
 	private String Rated;
 	
 	@JsonFormat(pattern="dd MMM yyyy")
