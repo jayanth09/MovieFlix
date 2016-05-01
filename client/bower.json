@@ -1,0 +1,15 @@
+{
+  "name": "movieflix",
+  "description": "movieflix project front-end",
+  "main": "index.js",
+  "authors": [
+    "jayanth"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jayanth09/MovieFlix",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.5",
+    "bootstrap": "^3.3.6"
+  }
+}

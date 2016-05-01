@@ -1,0 +1,12 @@
+{
+  "name": "movieflix",
+  "version": "1.0.0",
+  "description": "movieflix project front-end",
+  "main": "index.js",
+  "author": "jayanth",
+  "license": "MIT",
+  "homepage": "https://github.com/jayanth09/MovieFlix#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
