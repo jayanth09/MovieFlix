@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.egen.entity.UserReview;
+import io.egen.exception.EntityAlreadyExistException;
 import io.egen.exception.EntityNotFoundException;
 import io.egen.services.UserReviewService;
 
@@ -32,7 +33,7 @@ public class UserReviewController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public UserReview create(@RequestBody UserReview review) {
+	public UserReview create(@RequestBody UserReview review) throws EntityAlreadyExistException {
 		return service.create(review);
 	}
 	

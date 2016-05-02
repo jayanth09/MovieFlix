@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import io.egen.entity.UserReview;
+import io.egen.exception.EntityAlreadyExistException;
+import io.egen.exception.EntityNotFoundException;
 import io.egen.repository.UserReviewRepository;
 
 @Service
@@ -18,22 +20,22 @@ public class UserReviewServiceImpl implements UserReviewService {
 	
 	
 	@Override
-	public List<UserReview> findReviewById(String id)  {
+	public List<UserReview> findReviewById(String id) throws EntityNotFoundException {
 		
 		List<UserReview> reviews = repository.findReviewById(id);
 		if(reviews !=null) {
 			return reviews;
 		}
 		else {
-			return null;		
+			throw new EntityNotFoundException();		
 		}
 	}
 	
 	@Override
-	public UserReview findOne(String id) {
+	public UserReview findOne(String id) throws EntityNotFoundException {
 		UserReview review = repository.findOne(id);
 		if(review == null) {
-			return null;
+			throw new EntityNotFoundException();
 		}
 		else  {
 			return review;
@@ -41,16 +43,21 @@ public class UserReviewServiceImpl implements UserReviewService {
 	}
 
 	@Override
-	public UserReview create(UserReview review) {
-			//System.out.println(review.getMovie().getId());
-			return repository.create(review);
+	public UserReview create(UserReview review) throws EntityAlreadyExistException{
+		UserReview existing = repository.create(review);
+		if(existing == null) {
+			throw new EntityAlreadyExistException();
+		}
+		else {
+			return existing;
+		}	
 	}
 	
 	@Override
-	public UserReview update(String id, UserReview review) {
+	public UserReview update(String id, UserReview review) throws EntityNotFoundException {
 		UserReview existing = repository.findOne(id);
 		if(existing == null) {
-			return null;
+			throw new EntityNotFoundException();
 		}
 		else {
 			return repository.update(id, review);
