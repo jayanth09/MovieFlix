@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html ng-app="movieflix">
 
+<head>
+    <!-- bower:css -->
+    <!-- endinject -->
+
+    <!-- vendor:css -->
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- app:css -->
+    <!-- endinject -->
+</head>
+
+<body>
+<header>
+    <ul class="nav nav-pills">
+        <li><a href="#/movies/{{movie.id}}">Movies</a></li>
+        <li><a href="#">TV shows</a></li>
+        <li><a href="login.html"> Login</a></li>
+    </ul>
+</header>
+
+<section ng-view>
+
+
+</section>
+
+<!-- bower:js -->
+<!-- endinject -->
+
+<!-- vendor:js -->
+<!-- endinject -->
+
+<!-- inject:js -->
+<!-- endinject -->
+
+<!-- app:js -->
+<!-- endinject -->
 </body>
+
 </html>

@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h2>Movies List</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Runtime</th>
+            <th>Language</th>
+            <th>IMDB Ratings</th>
+            <th>Genre</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="movie in moviesVm.movies">
+            <td><a href="#/movies/{{movie.id}}">{{movie.title}}</a></td>
+            <td>{{movie.year}}</td>
+            <td>{{movie.runtime}}</td>
+            <td>{{movie.language}}</td>
+            <td>{{movie.imdbRating}}</td>
+            <td>{{movie.genre}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>

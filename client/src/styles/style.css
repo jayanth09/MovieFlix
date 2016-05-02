@@ -1,0 +1,23 @@
+/*
+
+.header {
+    float: right;
+}
+
+!*html {
+    background-image: url(../images/img1.jpg);
+    background-size: cover;
+}*!
+
+.container {
+    position: relative;
+}
+
+.nav-pills>li>a {
+    border-radius: 4px;
+    color: white;
+}
+
+a:hover{
+    color: red;
+}*/
