@@ -1,0 +1,9 @@
+bower_components
+node_modules
+build
+.idea
+server/.metadata
+server/Servers
+server/.recommenders
+server/RemoteSystemsTempFiles
+server/MovieFlix/.settings

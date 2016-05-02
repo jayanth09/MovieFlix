@@ -1,0 +1,15 @@
+div .container{
+    padding-top: 60px;
+    position: static;
+    display: block;
+    width: 350px;
+}
+
+.submit button{
+    background: red;
+    font-family:monospace ;
+}
+/*html {
+    background: url(../images/deadpool.jpg) no-repeat center center fixed;
+    background-size : 100% auto
+}*/

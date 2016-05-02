@@ -17,13 +17,13 @@
                 controller: 'MovieDetailController',
                 controllerAs: 'movieDetailsVm'
             })
-            .when('/resources', {
-                templateUrl: 'app/views/resources.tmpl.html',
-                controller: 'ResourcesController',
-                controllerAs: 'resourcesVm'
+            .when('/login', {
+                templateUrl: 'app/views/login.tmpl.html',
+                controller: 'LoginController',
+                controllerAs: 'loginVm'
             })
             .otherwise({
-                redirectTo: '/movies'
+                redirectTo: '/login'
             });
     }
 })();

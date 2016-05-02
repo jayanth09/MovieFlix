@@ -1,23 +1,7 @@
-/*
 
-.header {
-    float: right;
+.main {
+    background: url(../images/deadpool.jpg) no-repeat center center fixed;
+    background-size : 100% auto
 }
 
-!*html {
-    background-image: url(../images/img1.jpg);
-    background-size: cover;
-}*!
 
-.container {
-    position: relative;
-}
-
-.nav-pills>li>a {
-    border-radius: 4px;
-    color: white;
-}
-
-a:hover{
-    color: red;
-}*/
