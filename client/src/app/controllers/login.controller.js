@@ -4,8 +4,8 @@
     angular.module('movieflix')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['loginService','$location'];
-    function LoginController(loginService, $location) {
+    LoginController.$inject = ['userService','$location', 'Notification'];
+    function LoginController(userService, $location, Notification) {
         var loginVm = this;
         init();
         loginVm.login = login;
@@ -14,13 +14,16 @@
         }
         function login() {
             console.log("inside login function");
-            loginService.checkUser(loginVm.email, loginVm.password)
+            userService.checkUser(loginVm.email, loginVm.password)
                 .then(function (user) {
                     loginVm.userData = user;
                     console.log(loginVm.userData);
                     $location.path('/movies');
+                    Notification.success("You've logged in successfully");
                 }, function (error) {
                     console.log(error);
+                    $location.path('/login');
+                    Notification.error("Email ID and password did not match, please try again.");
                 });
         };
 

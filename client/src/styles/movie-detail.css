@@ -1,0 +1,17 @@
+div .movie-detail {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+
+div .movie-image {
+    float: right;
+    width: 50%;
+    display: inline-block;
+}
+
+div .details {
+    float: left;
+    display: inline-block;
+}
+

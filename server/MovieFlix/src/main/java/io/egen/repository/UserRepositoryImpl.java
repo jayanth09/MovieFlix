@@ -3,6 +3,7 @@ package io.egen.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -57,11 +58,23 @@ public class UserRepositoryImpl implements UserRepository {
 	}
 
 	@Override
-	public User userAuth(String email, String pwd) {
-		TypedQuery<User> query = em.createQuery("Select u from User u where u.email= :pEmail AND u.password = :pPassword", User.class);
-		query.setParameter("pEmail", email);
-		query.setParameter("pPassword", pwd);
-		return query.getSingleResult();
+	public User userAuth(String email, String pwd) throws NoResultException {
+		try {
+			TypedQuery<User> query = em.createQuery("Select u from User u where u.email= :pEmail AND u.password = :pPassword", User.class);
+			query.setParameter("pEmail", email);
+			query.setParameter("pPassword", pwd);
+			User user = query.getSingleResult();
+			if(user.equals(null)) {
+				throw new NoResultException();
+			}
+			else {
+				return query.getSingleResult();
+			}
+		}
+		catch(NoResultException e) {
+			throw new NoResultException();
+		}
+		
 	}
 
 }

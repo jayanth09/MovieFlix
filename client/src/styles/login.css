@@ -9,6 +9,10 @@ div .container{
     background: red;
     font-family:monospace ;
 }
+
+.error p{
+    color: red;
+}
 /*html {
     background: url(../images/deadpool.jpg) no-repeat center center fixed;
     background-size : 100% auto

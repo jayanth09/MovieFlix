@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="col-md-6 col-md-offset-3">
+        <form name="regForm" ng-submit="regVm.register()" novalidate>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" ng-model="regVm.user.firstName" name="firstName" id="firstName" placeholder="Enter your first name" required minlength="5">
+                <div ng-messages="regForm.firstName.$error" class="error" ng-if="regForm.firstName.$dirty">
+                    <p ng-message="required">First Name cannot be empty</p>
+                    <p ng-message="minlength">First Name must me more than 5 characters</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" ng-model="regVm.user.lastName" name="lastName" id="lastName" placeholder="Enter your last name" required minlength="5">
+                <div ng-messages="regForm.lastName.$error" class="error" ng-if="regForm.lastName.$dirty">
+                    <p ng-message="required">Last Name cannot be empty</p>
+                    <p ng-message="minlength">Last Name must me more than 5 characters</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" class="form-control" ng-model="regVm.user.email" name="email" id="email" placeholder="Enter your email" required>
+                <div ng-messages="regForm.email.$error" class="error" ng-if="regForm.email.$dirty">
+                    <p ng-message="required">Email cannot be empty</p>
+                    <p ng-message="email">Email is invalid</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" ng-model="regVm.user.password" name="password" id="password" placeholder="Enter your passwords" required minlength="8">
+                <div ng-messages="regForm.password.$error" class="error" ng-if="regForm.password.$dirty">
+                    <p ng-message="required">Password cannot be empty</p>
+                    <p ng-message="minlength">Password must be more than 8 characters</p>
+                </div>
+            </div>
+
+            <br>
+            <button type="submit" ng-disabled="regForm.$invalid" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>

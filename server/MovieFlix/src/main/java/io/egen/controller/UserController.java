@@ -2,6 +2,8 @@ package io.egen.controller;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +35,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/{email}/{password}", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public User userAuth(@PathVariable("email") String email, @PathVariable("password") String pwd) throws EntityNotFoundException {
+	public User userAuth(@PathVariable("email") String email, @PathVariable("password") String pwd) throws NoResultException {
 		return service.userAuth(email, pwd);
 	}
 	

@@ -2,6 +2,8 @@ package io.egen.services;
 
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,14 +69,21 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User userAuth(String email, String pwd) {
-		User existing = repository.userAuth(email, pwd);
-		if(existing == null) {
-			return null;
+	public User userAuth(String email, String pwd) throws NoResultException{
+		try {
+			User existing = repository.userAuth(email, pwd);
+			if(existing == null) {
+				throw new NoResultException();
+			}
+			else {
+				return existing;
+			}
 		}
-		else {
-			return existing;
+		catch(NoResultException e) {
+			e.getMessage();
+			throw new NoResultException();
 		}
+		
 	}
 		
 	

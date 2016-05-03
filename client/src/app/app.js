@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('movieflix', ['ngRoute'])
+    angular.module('movieflix', ['ngRoute','ngMessages', 'ui-notification'])
         .config(moduleConfig);
 
     function moduleConfig($routeProvider) {
@@ -21,6 +21,11 @@
                 templateUrl: 'app/views/login.tmpl.html',
                 controller: 'LoginController',
                 controllerAs: 'loginVm'
+            })
+            .when('/register', {
+                templateUrl: 'app/views/register.tmpl.html',
+                controller: 'RegisterController',
+                controllerAs: 'regVm'
             })
             .otherwise({
                 redirectTo: '/login'
