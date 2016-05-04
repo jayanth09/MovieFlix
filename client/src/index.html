@@ -24,6 +24,9 @@
         <li ng-show="nav.values.displayRegisterTab"><a href="#/register">Free 30 Day Trial</a></li>
         <li ng-show="nav.values.displayTopMoviesTab"><a href="#/topMovies">Trending Movies</a></li>
         <li ng-show="nav.values.displayTopShowsTab"><a href="#/topSeries">Trending TV Shows</a></li>
+        <div ng-controller="MovieController as moviesVm">
+            <li ng-show="nav.values.displaySearchTab">Search<input type="text" class="form-control" ng-model="moviesVm.searchText.title" id="search" placeholder="Title, Gernre, Year"></li>
+        </div>
     </ul>
 </header>
 
