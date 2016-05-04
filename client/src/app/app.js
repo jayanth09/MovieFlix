@@ -12,10 +12,30 @@
                 controller: 'MovieController',
                 controllerAs: 'moviesVm'
             })
+            .when('/series', {
+                templateUrl: 'app/views/series.tmpl.html',
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
+            })
             .when('/movies/:id', {
                 templateUrl: 'app/views/movie-detail.tmpl.html',
-                controller: 'MovieDetailController',
-                controllerAs: 'movieDetailsVm'
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
+            })
+            .when('/series/:id', {
+                templateUrl: 'app/views/series-detail.tmpl.html',
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
+            })
+            .when('/topMovies', {
+                templateUrl: 'app/views/top-movies.tmpl.html',
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
+            })
+            .when('/topSeries', {
+                templateUrl: 'app/views/top-series.tmpl.html',
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
             })
             .when('/login', {
                 templateUrl: 'app/views/login.tmpl.html',

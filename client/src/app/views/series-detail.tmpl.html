@@ -1,14 +1,14 @@
 <div class="container" ng-init="moviesVm.getById()">
-    <h2>Movie Detail <a href="#/movies" class="pull-right btn btn-link">Back</a></h2>
+    <h2>TV Shows<a href="#/series" class="pull-right btn btn-link">Back</a></h2>
     <div class="details">
-        <div class="movie-detail">
+        <div class="series-detail">
             <h2>{{moviesVm.movie.title}}</h2>
             <hr>
             <p><h4>{{moviesVm.movie.plot}}</h4></p>
-            <p><b>Year: </b>{{moviesVm.movie.year}}</p>
+            <p><b>Rated: </b>{{moviesVm.movie.rated}}</p>
             <p><b>Actors: </b>{{moviesVm.movie.actors}}</p>
             <p><b>Genres: </b> {{moviesVm.movie.genre}}</p>
-            <p><b>Direcotr: </b>{{moviesVm.movie.director}}</p>
+            <p><b>Director: </b>{{moviesVm.movie.director}}</p>
             <p><b>Writer: </b>{{moviesVm.movie.writer}}</p>
             <p><b>IMDB Rating: </b>{{moviesVm.movie.imdbRating}}</p>
             <p><b>Awards: </b>{{moviesVm.movie.awards}}</p>

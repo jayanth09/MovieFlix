@@ -15,12 +15,6 @@
             console.log("Movie information");
         }
 
-        MovieService
-            .getMovieById($routeParams.id)
-            .then(function (movie){
-                movieDetailsVm.movie = movie;
-            }, function (error) {
-                console.log(error);
-            });
+        
     }
 })();

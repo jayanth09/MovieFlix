@@ -1,7 +1,6 @@
-div .movie-detail {
-    display: inline-block;
-    float: left;
-    width: 50%;
+div .list{
+    float: inherit;
+    width: inherit;
 }
 
 div .movie-image {
@@ -10,8 +9,4 @@ div .movie-image {
     display: inline-block;
 }
 
-div .details {
-    float: left;
-    display: inline-block;
-}
 

@@ -16,12 +16,14 @@
 </head>
 
 <body class="main">
-<header>
+<header ng-controller="NavigationController as nav">
     <ul class="nav nav-pills">
-        <li><a href="#/movies/{{movie.id}}">Movies</a></li>
-        <li><a href="#">TV shows</a></li>
-        <li><a href="#/login">Login</a></li>
-        <li><a href="#/register">Free 30 day trial</a></li>
+        <li ng-show="nav.values.displayMoviesTab"><a href="#/movies">Movies</a></li>
+        <li ng-show="nav.values.displaySeriesTab"><a href="#/series">TV shows</a></li>
+        <li ng-show="nav.values.displayLoginTab"><a href="#/login">Login</a></li>
+        <li ng-show="nav.values.displayRegisterTab"><a href="#/register">Free 30 Day Trial</a></li>
+        <li ng-show="nav.values.displayTopMoviesTab"><a href="#/topMovies">Trending Movies</a></li>
+        <li ng-show="nav.values.displayTopShowsTab"><a href="#/topSeries">Trending TV Shows</a></li>
     </ul>
 </header>
 

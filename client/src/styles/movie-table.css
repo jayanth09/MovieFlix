@@ -2,3 +2,7 @@ tr .movie-list th {
     text-align: left;
     color: red;
 }
+
+a hover {
+    color: orangered;
+}
