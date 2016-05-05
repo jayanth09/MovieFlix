@@ -37,6 +37,16 @@
                 controller: 'MovieController',
                 controllerAs: 'moviesVm'
             })
+            .when('/imdbRating', {
+                templateUrl: 'app/views/movies.tmpl.html',
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
+            })
+            .when('/comments', {
+                templateUrl: 'app/views/comments.tmpl.html',
+                controller: 'MovieController',
+                controllerAs: 'moviesVm'
+            })
             .when('/login', {
                 templateUrl: 'app/views/login.tmpl.html',
                 controller: 'LoginController',

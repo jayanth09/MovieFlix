@@ -1,6 +1,8 @@
 <div class="container" ng-init="moviesVm.getTopRatedSeries()">
 
     <h2>Trending series</h2>
+    <li>Search<input type="text" class="form-control" ng-model="moviesVm.searchText" id="search" placeholder="Title, Gernre, Year"></li>
+
     <table class="table table-hover">
         <thead>
         <tr class="list">
@@ -14,7 +16,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat="series in moviesVm.series">
+        <tr ng-repeat="series in moviesVm.series | filter: moviesVm.searchText">
             <td><a href="#/series/{{series.id}}">{{series.title}}</a></td>
             <td>{{series.rated}}</td>
             <td>{{series.runtime}}</td>

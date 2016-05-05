@@ -10,7 +10,8 @@
     function MovieController(MovieService, $routeParams) {
         var moviesVm = this;
         init();
-        
+
+        moviesVm.changeSort = changeSort;
         moviesVm.getMovies = getMovies;
         moviesVm.getSeries = getSeries;
         moviesVm.getById = getById;
@@ -21,6 +22,15 @@
             console.log("List of Movies");
         }
 
+        moviesVm.sorter = {
+            by: 'year',
+            reverse: false
+        }
+        
+        function changeSort(prop) {
+            moviesVm.sorter.by = prop;
+            moviesVm.sorter.reverse = !moviesVm.sorter.reverse;
+        }
         function getMovies() {
             MovieService
                 .getMovies()

@@ -36,6 +36,8 @@
             navigationService.values.displayTopMoviesTab = true;
             navigationService.values.displayTopShowsTab = true;
             navigationService.values.displaySearchTab = true;
+            navigationService.values.displayLogoutTab = true;
+
         }
 
     }
