@@ -1,9 +1,9 @@
 <div class="container" ng-init="moviesVm.getById()">
     <h2>Movie Detail <a href="#/movies" class="pull-right btn btn-link">Back</a></h2>
+    <h2>{{moviesVm.movie.title}}</h2>
+    <hr>
     <div class="details" >
         <div class="movie-detail">
-            <h2>{{moviesVm.movie.title}}</h2>
-            <hr>
             <p><h4>{{moviesVm.movie.plot}}</h4></p>
             <p><b>Year: </b>{{moviesVm.movie.year}}</p>
             <p><b>Actors: </b>{{moviesVm.movie.actors}}</p>
@@ -20,6 +20,9 @@
             <img ng-src="{{moviesVm.movie.poster}}">
         </div>
 
-        <p><a href="#/comments"> View Comments</a></p>
+        <p><a href="#/comments/{{moviesVm.movie.id}}"> View All Comments</a></p>
+        <p><a href="#/createComment"> Write A Comment</a></p>
+
+
     </div>
 </div>

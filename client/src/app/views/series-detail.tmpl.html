@@ -1,9 +1,9 @@
 <div class="container" ng-init="moviesVm.getById()">
     <h2>TV Shows<a href="#/series" class="pull-right btn btn-link">Back</a></h2>
+    <h2>{{moviesVm.movie.title}}</h2>
+    <hr>
     <div class="details">
-        <div class="series-detail">
-            <h2>{{moviesVm.movie.title}}</h2>
-            <hr>
+        <div class="movie-detail">
             <p><h4>{{moviesVm.movie.plot}}</h4></p>
             <p><b>Rated: </b>{{moviesVm.movie.rated}}</p>
             <p><b>Actors: </b>{{moviesVm.movie.actors}}</p>

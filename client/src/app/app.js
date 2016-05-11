@@ -42,10 +42,15 @@
                 controller: 'MovieController',
                 controllerAs: 'moviesVm'
             })
-            .when('/comments', {
+            .when('/comments/:id', {
                 templateUrl: 'app/views/comments.tmpl.html',
-                controller: 'MovieController',
-                controllerAs: 'moviesVm'
+                controller: 'ReviewController',
+                controllerAs: 'reviewVm'
+            })
+            .when('/createComment', {
+                templateUrl: 'app/views/create-comment.tmpl.html',
+                controller: 'ReviewController',
+                controllerAs: 'reviewVm'
             })
             .when('/login', {
                 templateUrl: 'app/views/login.tmpl.html',

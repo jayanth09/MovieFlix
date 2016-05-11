@@ -1,0 +1,8 @@
+<div class="container" ng-init="reviewVm.getAllComments()">
+    <div ng-repeat="comment in reviewVm.comments">
+        <p>Commment: {{comment.comment}}</p>
+        <p>Rating: {{comment.rating}}</p>
+        <p>User: {{comment.user.firstName}}</p>
+        <hr>
+    </div>
+</div>

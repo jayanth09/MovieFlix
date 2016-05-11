@@ -1,12 +1,12 @@
-div .list{
-    float: inherit;
-    width: inherit;
+ .movie-detail  {
+    float: left;
+    width: 50%;
 }
 
-div .movie-image {
+ .movie-image {
     float: right;
-    width: 50%;
-    display: inline-block;
+    width: 40%;
+    display: block;
 }
 
 

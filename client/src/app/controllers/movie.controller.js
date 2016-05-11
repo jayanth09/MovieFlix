@@ -82,6 +82,5 @@
                     console.log(error);
                 });
         }
-
     }
 })();

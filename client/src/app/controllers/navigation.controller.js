@@ -9,7 +9,7 @@
         var nav = this;
         init();
         function init() {
-            nav.values =navigationService.getValues();
+            nav.values =navigationService.getValues()
         }
     }
 })();   

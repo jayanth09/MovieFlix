@@ -12,6 +12,8 @@
         loginVm.setTabValue =  setTabValue;
         function init() {
             console.log("Login check");
+            navigationService.values.displayLoginTab =true;
+            navigationService.values.displayRegisterTab =true;
         }
         function login() {
             console.log("inside login function");
